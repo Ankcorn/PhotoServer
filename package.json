@@ -1,0 +1,27 @@
+{
+  "name": "photoserver",
+  "version": "1.0.0",
+  "description": "NodeJs Server of Photos",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start":"node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThomasAnkcorn/PhotoServer.git"
+  },
+  "author": "Thomas Ankcorn",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ThomasAnkcorn/PhotoServer/issues"
+  },
+  "homepage": "https://github.com/ThomasAnkcorn/PhotoServer#readme",
+  "dependencies": {
+    "cors": "2.8.4",
+    "express": "4.16.2",
+    "fs-extra": "4.0.2",
+    "morgan": "1.9.0",
+    "sharp": "0.18.4"
+  }
+}
