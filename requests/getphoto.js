@@ -10,8 +10,9 @@ module.exports = async function(req, res) {
   const height = parseInt(height_string)
 
   try {
-    const photosList = await fs.readdir(__dirname + "/../photos/")
-    const photoPath = path.resolve("./photos/" + photosList[photoNumber])
+    const photoList = await fs.readdir(__dirname + "/../photos/")
+    const parsedPhotoList = photoList.filter(removeDS)
+    const photoPath = path.resolve("./photos/" + parsedPhotoList[photoNumber])
     console.log("Fetching Photo " + photoPath)
     const resizedPhotoBuffer = await sharp(photoPath)
       .resize(width, height)
@@ -20,6 +21,10 @@ module.exports = async function(req, res) {
     res.send(resizedPhotoBuffer)
   } catch (e) {
     console.error(e)
-    res.status(500).send(e)
+    res.status(500).send(JSON.stringify(e))
   }
+}
+
+function removeDS(item){
+    return item!=='.DS_Store'
 }
