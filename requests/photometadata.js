@@ -7,7 +7,6 @@ module.exports = async function(req, res) {
     const parsedPhotoList = fileList.filter(removeDS)
     const exifList = await Promise.all(parsedPhotoList.map(async(path)=>{return await exif.read(__dirname + "/../photos/"+path)}))
     console.log(JSON.stringify(exifList))
-    
     res.send(exifList)
   } catch (e) {
     console.error(e)

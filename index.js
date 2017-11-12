@@ -3,14 +3,15 @@ const morgan = require("morgan")
 const path = require("path")
 const cors = require("cors")
 const app = express()
-
+const initialisePhotoWatcher = require('./services/checkphotodir')
 const photometadata = require("./requests/photometadata")
 const getphotobyid = require("./requests/getphoto")
+
+initialisePhotoWatcher('/photos')
+
 app.use(cors())
 
 app.use(morgan("tiny"))
-
-app.use(express.static(__dirname + "/../assets"))
 
 app.get("/photos", photometadata)
 
