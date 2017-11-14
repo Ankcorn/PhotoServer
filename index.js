@@ -17,6 +17,7 @@ app.get("/photos", photometadata)
 
 app.get("/photos/:id/:width/:height", getphotobyid)
 
+app.get("/photos/search/:query")
 const server = app.listen(3000, () => {
   console.log("Starting server on port 3000")
 })
